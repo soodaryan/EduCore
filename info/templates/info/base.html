@@ -53,7 +53,11 @@
                 {% endif %}
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                <!-- <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a> -->
+                <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                  {% csrf_token %}
+                  <button type="submit" class="nav-link btn btn-link text-light" style="text-decoration: none;">Logout</button>
+                </form>
             </li>
           </ul>
         </div>
@@ -167,7 +171,11 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="/accounts/logout">Logout</a>
+            <!-- <a class="btn btn-primary" href="/accounts/logout">Logout</a> -->
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary">Logout</button>
+            </form>
           </div>
         </div>
       </div>

@@ -25,16 +25,37 @@
                     {% for sc in sc_list %}
                     <tr>
                         <td>{{ sc.course_id }}</td>
-                        <td>{{sc.course.name}}</td>
-                        {% for m in sc.marks_set.all %}
-                            <td>{{ m.marks1 }}</td>
-                        {% endfor %}
+                        <td>{{ sc.course_name }}</td>
+                        <td>{{ sc.internals_1 }}</td>
+                        <td>{{ sc.internals_2 }}</td>
+                        <td>{{ sc.internals_3 }}</td>
+                        <td>{{ sc.event_1 }}</td>
+                        <td>{{ sc.event_2 }}</td>
+                        <td>{{ sc.see }}</td>
                     </tr>
                     {% empty %}
-                            <p>student has no courses</p>
+                        <tr><td colspan="8">No courses assigned.</td></tr>
+                    {% endfor %}
+                  </tbody>
+                  <!-- <tbody>
+                    {% for sc in sc_list %}
+                    <tr>
+                        <td>{{ sc.course_id }}</td>
+                        <td>{{ sc.course.name }}</td>
+                        {% with sc.marks_set.all.first as m %}
+                            <td>{{ m.marks1|default:"-" }}</td>
+                            <td>{{ m.marks2|default:"-" }}</td>
+                            <td>{{ m.marks3|default:"-" }}</td>
+                            <td>{{ m.event1|default:"-" }}</td>
+                            <td>{{ m.event2|default:"-" }}</td>
+                            <td>{{ m.see|default:"-" }}</td>
+                        {% endwith %}
+                    </tr>
+                    {% empty %}
+                    <p>student has no courses</p>
                     {% endfor %}
 
-                  </tbody>
+                  </tbody> -->
                 </table>
               </div>
             </div>

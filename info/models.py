@@ -111,7 +111,7 @@ class Teacher(models.Model):
 
     def __str__(self):
         return self.name
-
+ 
 
 class Assign(models.Model):
     class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
